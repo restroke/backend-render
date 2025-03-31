@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: envio-documentos-backend
+    env: python
+    buildCommand: ""
+    startCommand: "python app.py"
+    envVars:
+      - key: EMAIL_USER
+        value: your_email@gmail.com
+      - key: EMAIL_PASS
+        value: your_app_password
+      - key: EMAIL_DESTINO
+        value: destino@gmail.com
