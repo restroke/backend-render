@@ -31,15 +31,7 @@ def enviar_documentos():
         caminhos = []
 
         for tipo, file in arquivos.items():
-            if tipo == "rg":
-                rotulo = "RG"
-            elif tipo == "cpf":
-                rotulo = "CPF"
-            elif tipo == "comprovante":
-                rotulo = "COMPROVANTE"
-            else:
-                rotulo = tipo.upper()
-
+            rotulo = tipo.upper()
             timestamp = int(time.time())
             aleatorio = random.randint(100, 999)
             novo_nome = f"{rotulo}_{nome}_{sobrenome}_{timestamp}_{aleatorio}.pdf".replace(" ", "_")
@@ -66,7 +58,6 @@ def enviar_documentos():
         print("Erro ao enviar e-mail:", e)
         return { "error": "Falha ao enviar e-mail" }, 500
 
-# ⬇️ ESSA É A LINHA ESSENCIAL PARA FUNCIONAR NO RENDER
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
